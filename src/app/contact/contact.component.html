@@ -1,0 +1,53 @@
+<!-- <p>contact works!</p> -->
+
+<div class="row contact-section my-5 py-5">
+    <div class="col-md-4 col-12 info">
+        <div>
+            <h3>Get in touch</h3>
+            <p>if You Have Anything for Me then You Can Directly Contact Me Here...</p>
+        </div>
+        <div class="mt-2">
+            <h3>Address</h3>
+            <p>
+                Pune,
+                Maharashtra - 411041
+            </p>
+        </div>
+        <div class="mt-2">
+            <h3>Email Id:</h3>
+            <a href="mailto:lahumane001@gmail.com">lahumane001@gmail.com</a>
+        </div>
+        <div class="mt-2">
+            <h3>Phone No.</h3>
+            <a href="tel:9075484030">9075484030</a>
+        </div>
+    </div>
+    <div class="col-md-6 col-12 user-info">
+        <form [formGroup]="formData" (ngSubmit)="DataSubmit()">
+            <div class="form-group">
+                <label for="uName">UserName</label>
+                <input type="text" class="form-control" id="uName" placeholder="FullName" formControlName="Name">
+                <span *ngIf="formData.get('Name').invalid && formData.get('Name').touched" class="text-danger">please
+                    enter valid Name....</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                    formControlName="email">
+                <span *ngIf="formData.get('email').invalid && formData.get('email').touched" class="text-danger">please
+                    enter valid mail....</span>
+            </div>
+            <div class="form-group">
+                <label for="">Contact No.</label>
+                <input type="text" class="form-control" id="" placeholder="1234567890" formControlName="contact">
+                <span *ngIf="formData.get('contact').invalid && formData.get('contact').touched"
+                    class="text-danger">please enter valid contact....</span>
+            </div>
+            <div class="form-group">
+                <label for="textArea">Message</label>
+                <textarea class="form-control" id="textArea" rows="3" formControlName="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Submit</button>
+        </form>
+    </div>
+</div>
